@@ -3,6 +3,13 @@
 {% block start %}
     <body>
     <h1>this is coming from django</h1>
+
+    {% if logged %}
+    <h3>You are authenticated</h3>
+    {% else %}
+    <h3>You are not authenticated</h3>
+    {% endif %}
+
         <a href="{% url 'about' %}">
             <button>about</button>
         </a>

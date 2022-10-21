@@ -17,3 +17,9 @@ def contact(request):
 def about(request):
     context = {'page': 'about page'}
     return render(request, 'about.html', context)
+
+
+def dynamic(request, id):
+    print(id)
+    context = {'page': f'Dynamic{id}', 'id': id}
+    return render(request, 'dynamic.html', context)
