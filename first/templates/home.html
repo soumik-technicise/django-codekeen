@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block start %}
+    <body>
+    <h1>this is coming from django</h1>
+        <a href="{% url 'about' %}">
+            <button>about</button>
+        </a>
+        <a href="{% url 'contact' %}">
+            <button>contact</button>
+        </a>
+  </body>
+{% endblock %}
