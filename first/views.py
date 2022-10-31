@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import *
 
 
 # Create your views here.
@@ -10,7 +11,8 @@ def home(request):
 
 
 def contact(request):
-    context = {'page': 'contact page'}
+    contact_obj = Contact.objects.all()
+    context = {'page': 'contact page', 'contacts': contact_obj}
     return render(request, 'contact.html', context)
 
 
