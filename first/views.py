@@ -39,3 +39,22 @@ def todo(request):
     context = {'todos': todos}
 
     return render(request, 'todo.html', context)
+
+
+def delete_todo(request, id):
+    try:
+        todo = Todo.objects.get(id=id)
+        todo.delete()
+    except Todo.DoesNotExist:
+        pass
+    return redirect('todo')
+
+
+def mark_complete(request, id):
+    try:
+        todo = Todo.objects.get(id=id)
+        todo.is_complete = True
+        todo.save()
+    except Todo.DoesNotExist:
+        pass
+    return redirect('todo')

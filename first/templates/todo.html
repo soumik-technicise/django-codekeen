@@ -16,9 +16,14 @@
         </form>
         <ul class="list-group mt-4">
             {% for todo in todos %}
-                <li class="list-group-item">{{ todo.todo_name }} item
-                    <a href="" class="btn btn-danger">del</a>
-                    <a href="" class="btn btn-success">mark complete</a>
+                <li class="list-group-item">
+                    {% if todo.is_complete %}
+                    <strike>{{ todo.todo_name }}</strike>
+                    {% else %}
+                    {{ todo.todo_name }}
+                    {% endif %}
+                    <a href="{% url 'mark_complete' todo.id %}" class="btn btn-success">mark-complete</a>
+                    <a href="{% url 'delete_todo' todo.id %}" class="btn btn-danger">delete</a>
                 </li>
             {% endfor %}
         </ul>
